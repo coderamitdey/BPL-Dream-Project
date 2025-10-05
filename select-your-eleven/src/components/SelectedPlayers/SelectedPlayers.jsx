@@ -9,6 +9,7 @@ const SelectedPlayers = ({purchasedPlayers, removePlayers}) => {
                 purchasedPlayers.map(player => <SelectedCard removePlayers={removePlayers} player={player}></SelectedCard>)
             }
         </div>
+        
     );
 };
 

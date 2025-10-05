@@ -1,8 +1,10 @@
 import { Suspense, useState } from 'react'
 import './App.css'
+import { ToastContainer} from 'react-toastify';
 import AvailablePlayers from './components/AvailablePlayers/AvailablePlayers'
 import Navbar from './components/Navbar/Navbar'
 import SelectedPlayers from './components/SelectedPlayers/SelectedPlayers'
+
 
 const fetchPlayers = async () => {
   const res = await fetch("/Players.json");
@@ -14,7 +16,7 @@ const playersPromise = fetchPlayers()
 function App() {
 
   const [toggle, setToggle] = useState(true)
-  const [availableBalance, setAvailableBalance] = useState(1000000)
+  const [availableBalance, setAvailableBalance] = useState(100000000)
   const [purchasedPlayers, setPurchasedPlayers] = useState([])
 
 
@@ -45,8 +47,10 @@ function App() {
       {
         toggle === true ? <Suspense fallback={<span className="loading loading-spinner loading-xl"></span>}>
         <AvailablePlayers setPurchasedPlayers={setPurchasedPlayers} purchasedPlayers={purchasedPlayers} availableBalance={availableBalance} setAvailableBalance={setAvailableBalance} playersPromise={playersPromise}></AvailablePlayers>
-      </Suspense> : <SelectedPlayers removePlayers={removePlayers} purchasedPlayers={purchasedPlayers}></SelectedPlayers>
+      </Suspense> : <SelectedPlayers removePlayers={removePlayers} purchasedPlayers={purchasedPlayers} ></SelectedPlayers>
       }
+
+      <ToastContainer/>
 
     </>
   )

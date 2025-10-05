@@ -25,7 +25,9 @@ const SelectedCard = ({ player, removePlayers }) => {
                     </div>
                 </div>
             </div>
+            
         </div>
+        
     );
 };
 
