@@ -3,9 +3,21 @@ import userImg from '../../assets/user-1.png';
 import flagImg from '../../assets/report-1.png'
 
 
-const PlayerCard = ({player}) => {
+const PlayerCard = ({player, setAvailableBalance, availableBalance}) => {
 
     const [isSelected, setIsSelected] = useState(false)
+
+    const handleSelected = (playerData)=>{
+        const playerPrice = parseInt(playerData.price);
+        
+        if(availableBalance < playerPrice){
+            alert("Not enough Coins!!");
+            return
+        }
+        setIsSelected(true)
+        setAvailableBalance(availableBalance - playerPrice);
+
+    }
     return (
         <div className="card bg-base-100 shadow-sm p-4">
   <figure>
@@ -41,7 +53,9 @@ const PlayerCard = ({player}) => {
     
     <div className="card-actions mt-4 justify-between items-centers">
         <p className='font-semibold'>Price: ${player.price}</p>
-      <button onClick={() => setIsSelected(true)} className="btn">{isSelected === true? "Selected" : "Choose Player"}</button>
+      <button disabled={isSelected} onClick={() =>{handleSelected(player)}} 
+
+      className="btn">{isSelected === true? "Selected" : "Choose Player"}</button>
     </div>
   </div>
 </div>

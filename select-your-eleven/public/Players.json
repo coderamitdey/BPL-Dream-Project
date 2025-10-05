@@ -7,7 +7,7 @@
     "rating": 4.9,
     "batting_style": "Left-hand bat",
     "bowling_style": "Left-arm orthodox",
-    "price": 125000
+    "price": 250000
   },
   {
     "player_img": "https://i.ibb.co.com/fdG2H0Q2/babar.jpg",
@@ -37,7 +37,7 @@
     "rating": 4.5,
     "batting_style": "Left-hand bat",
     "bowling_style": "Left-arm fast-medium",
-    "price": 95000
+    "price": 550000
   },
   {
     "player_img": "https://i.ibb.co.com/S44T35Pw/liton.jpg",
